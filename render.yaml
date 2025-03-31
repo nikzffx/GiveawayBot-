@@ -2,8 +2,8 @@ services:
   - type: web
     name: discord-giveaway-bot
     env: python
-    buildCommand: pip install -r pyproject.toml
-    startCommand: gunicorn --bind 0.0.0.0:$PORT --reuse-port main:app
+    buildCommand: pip install -U pip && pip install discord.py flask flask-sqlalchemy gunicorn python-dotenv sqlalchemy psycopg2-binary
+    startCommand: python main.py
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.10
@@ -11,5 +11,20 @@ services:
         sync: false
       - key: DATABASE_URL
         sync: false
+      - key: PGUSER
+        sync: false
+      - key: PGPASSWORD
+        sync: false
+      - key: PGDATABASE
+        sync: false
+      - key: PGHOST
+        sync: false
+      - key: PGPORT
+        sync: false
     healthCheckPath: /health
     autoDeploy: true
+    # Uncomment if you want to add a database
+    # plan: free
+    # databases:
+    #  - name: discord-giveaway-bot-db
+    #    plan: free
