@@ -291,7 +291,7 @@ class GiveawayCog(commands.Cog):
             # Create the embed for the giveaway
             embed = discord.Embed(
                 #title="🎊 GIVEAWAY 🎊",
-                color=0x00ff00,
+                color=0x9BC5E7,
                 timestamp=datetime.datetime.fromtimestamp(end_time)
             )
             
