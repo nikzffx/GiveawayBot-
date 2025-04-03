@@ -888,7 +888,7 @@ class GiveawayCog(commands.Cog):
                # title="🎊 GIVEAWAY 🎊",
                 description=f"**{prize}**\n\n"
                 f"Hosted by: {ctx.author.mention}",
-                color=0x00ff00,
+                color=0x9BC5E7‎,
                 timestamp=datetime.datetime.fromtimestamp(end_time)
             )
             time_formats = format_end_time(end_time)
