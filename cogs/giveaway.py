@@ -1164,19 +1164,13 @@ class GiveawayCog(commands.Cog):
             embed.color = 0xff0000
             embed.set_field_at(0, name="Time Remaining", value="Giveaway has ended!")
 
-            # Create mentions string for announcement
-                if len(winners) == 1:
-                    winner_mentions = winners[0].mention
-                    winner_s = ""
-                else:
-                    winner_mentions = ", ".join([winner.mention for winner in winners])
                     
             # Update the entries and winners fields too
             for i, field in enumerate(embed.fields):
                 if field.name == "Entries":
                     embed.set_field_at(i, name="Entries", value=str(giveaway.entries_count), inline=True)
                 elif field.name == "Winners":
-                    embed.set_field_at(i, name="Winners", value={winner_mentions}, inline=True)
+                    embed.set_field_at(i, name="Winners", value=str(giveaway.winners_count), inline=True)
             
             # Get all entries from the button
             all_user_ids = giveaway.entries
