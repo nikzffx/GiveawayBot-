@@ -290,15 +290,15 @@ class GiveawayCog(commands.Cog):
             
             # Create the embed for the giveaway
             embed = discord.Embed(
-                title="**{prize}**",
+             #   title="**{prize}**",
                 color=0x9BC5E7,
                 timestamp=datetime.datetime.fromtimestamp(end_time)
             )
             
-            # Add the prize and description
-          #  description_text = f"**{prize}**\n\n"
-          #  if description:
-               # description_text += f"{description}\n\n"
+             Add the prize and description
+            description_text = f"**{prize}**\n\n"
+            if description:
+                description_text += f"{description}\n\n"
             description_text += f"**Hosted by:** {interaction.user.mention}"
            # embed.description = description_text
 
@@ -886,7 +886,7 @@ class GiveawayCog(commands.Cog):
             
             embed = discord.Embed(
                # title="🎊 GIVEAWAY 🎊",
-                description=f"**{prize}**\n"
+                description=f"**{prize}**\n\n"
                 f"**Hosted by:** {ctx.author.mention}",
                 color=0x9BC5E7,
                 timestamp=datetime.datetime.fromtimestamp(end_time)
