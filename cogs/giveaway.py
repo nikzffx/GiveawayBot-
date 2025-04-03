@@ -296,7 +296,7 @@ class GiveawayCog(commands.Cog):
             )
             
             # Add the prize and description
-            description_text = f"**{prize}**\n\n"
+            description_text = f"**{prize}**\n"
             if description:
                 description_text += f"{description}\n\n"
             description_text += f"**Hosted by:** {interaction.user.mention}"
