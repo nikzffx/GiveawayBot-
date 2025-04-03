@@ -887,7 +887,7 @@ class GiveawayCog(commands.Cog):
             embed = discord.Embed(
                # title="🎊 GIVEAWAY 🎊",
                 description=f"**{prize}**\n\n"
-                f"Hosted by: {ctx.author.mention}",
+                f"**Hosted by:** {ctx.author.mention}",
                 color=0x9BC5E7‎,
                 timestamp=datetime.datetime.fromtimestamp(end_time)
             )
