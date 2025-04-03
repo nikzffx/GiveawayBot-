@@ -1214,9 +1214,15 @@ class GiveawayCog(commands.Cog):
                     winner_mentions = ", ".join([winner.mention for winner in winners])
                     winner_s = "s"
 
+                # Creating a button
+                view = discord.ui.View()
+                button = discord.ui.Button(label="Claim Prize", url="https://discord.com/")
+                view.add_item(button)
+
                 # Send winner announcement
                 await channel.send(
-                    f"🎉 Congratulations {winner_mentions}! You are the winner{winner_s} of **{giveaway.prize}**!"
+                    f"🎉 Congratulations {winner_mentions}! You are the winner{winner_s} of **{giveaway.prize}**!",
+                    view=view
                 )
                 
                 winner_names = ", ".join([str(winner) for winner in winners])
