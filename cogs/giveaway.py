@@ -885,33 +885,27 @@ class GiveawayCog(commands.Cog):
             end_time = datetime.datetime.now().timestamp() + duration_seconds
             
             embed = discord.Embed(
-                title="🎊 GIVEAWAY 🎊",
+               # title="🎊 GIVEAWAY 🎊",
                 description=f"**{prize}**\n\n"
-                f"Click the button below to enter!\n"
                 f"Hosted by: {ctx.author.mention}",
                 color=0x00ff00,
                 timestamp=datetime.datetime.fromtimestamp(end_time)
             )
-            embed.add_field(name="Time Remaining", value=format_time_remaining(duration_seconds))
-            embed.add_field(name="Winners", value=f"{winners_count}", inline=True)
-            embed.add_field(name="Entries", value="0", inline=True)
+            time_formats = format_end_time(end_time)
+
+            # Display time in a more user-friendly format with multiple formats
+            time_value = (
+                f"{time_formats['discord_relative']}({time_formats['discord_absolute']})"
+            )
+            embed.add_field(name="Ends At", value=time_value, inline=False)
+            embed.add_field(name="Winners", value=f"**{winners_count}**", inline=True)
+            embed.add_field(name="Entries", value="**0**", inline=True)
             
             # Format time details with timezone-aware timestamps
             time_formats = format_end_time(end_time)
             
-            # Add a field for user's local time with enhanced formatting
-            time_value = (
-                f"• {time_formats['discord_relative']}\n"
-                f"• Your local time: {time_formats['discord_time']} on {time_formats['discord_date']}\n"
-                f"• Full: {time_formats['discord_absolute']}"
-            )
-            embed.add_field(
-                name="⏰ Ends At",
-                value=time_value,
-                inline=False
-            )
             
-            embed.set_footer(text="Click the 🎉 button below to enter")
+           # embed.set_footer(text="Click the 🎉 button below to enter")
             
             # Create view with button
             view = GiveawayView(self)
