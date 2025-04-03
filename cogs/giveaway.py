@@ -1213,10 +1213,16 @@ class GiveawayCog(commands.Cog):
                 else:
                     winner_mentions = ", ".join([winner.mention for winner in winners])
                     winner_s = "s"
-                
+
+                # Create a view with a button Testing 
+class WinnerButtonView(discord.ui.View):
+    def __init__(self, prize_url: str):
+        super().__init__()
+        self.add_item(discord.ui.Button(label="Claim Prize", url=prize_url))  # URL button
+        
                 # Send winner announcement
                 await channel.send(
-                    f"🎉 Congratulations {winner_mentions}! You are the winner{winner_s} of **{giveaway.prize}**!"
+                    f"🎉 Congratulations {winner_mentions}! You are the winner{winner_s} of **{giveaway.prize}**!",view=WinnerButtonView("https://example.com")  # Replace with actual prize URL
                 )
                 
                 winner_names = ", ".join([str(winner) for winner in winners])
