@@ -66,7 +66,7 @@ class GiveawayBot(commands.Bot):
         logger.info(f"Bot is in {len(self.guilds)} guilds")
 
 
-        await bot.change_presence(status=discord.Status.invisible)
+        await self.change_presence(status=discord.Status.invisible)
         # Set bot status
      #   await self.change_presence(
        #     activity=discord.Activity(
