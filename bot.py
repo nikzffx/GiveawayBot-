@@ -64,14 +64,16 @@ class GiveawayBot(commands.Bot):
         """Event triggered when the bot is ready and connected to Discord"""
         logger.info(f"{self.user.name} has connected to Discord!")
         logger.info(f"Bot is in {len(self.guilds)} guilds")
-        
+
+
+        await bot.change_presence(status=discord.Status.invisible)
         # Set bot status
-        await self.change_presence(
-            activity=discord.Activity(
-                type=discord.ActivityType.watching,
-                name=""
-            )
-        )
+     #   await self.change_presence(
+       #     activity=discord.Activity(
+        #        type=discord.ActivityType.watching,
+        #        name=""
+       #     )
+      #  )
         
         # Sync application commands with Discord
         try:
