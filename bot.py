@@ -65,6 +65,14 @@ class GiveawayBot(commands.Bot):
         logger.info(f"{self.user.name} has connected to Discord!")
         logger.info(f"Bot is in {len(self.guilds)} guilds")
 
+        # Set bot status Streaming
+        await self.change_presence(
+            activity=discord.Streaming(
+                name="",
+                url="https://www.twitch.tv/your_channel"
+            )
+        )
+
         # Set bot status Offline 
       #  await self.change_presence(status=discord.Status.invisible)
         
