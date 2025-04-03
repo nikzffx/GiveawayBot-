@@ -300,7 +300,7 @@ class GiveawayCog(commands.Cog):
             if description:
                 description_text += f"{description}\n\n"
             description_text += f"**Hosted by:** {interaction.user.mention}"
-           # embed.description = description_text
+            embed.description = description_text
 
             # Add fields for time, winners, and entries
             time_formats = format_end_time(end_time)
