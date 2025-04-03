@@ -295,7 +295,7 @@ class GiveawayCog(commands.Cog):
                 timestamp=datetime.datetime.fromtimestamp(end_time)
             )
             
-             add the prize and description
+          #   Add the prize and description
             description_text = f"**{prize}**\n\n"
             if description:
                 description_text += f"{description}\n\n"
