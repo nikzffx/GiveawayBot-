@@ -287,20 +287,6 @@ class GiveawayCog(commands.Cog):
                 return
                 
             end_time = datetime.datetime.now().timestamp() + duration_seconds
-            
-            # Create the embed for the giveaway
-            embed = discord.Embed(
-             #   title="**{prize}**",
-                color=0x9BC5E7,
-                timestamp=datetime.datetime.fromtimestamp(end_time)
-            )
-            
-          #   Add the prize and description
-            description_text = f"**{prize}**\n\n"
-            if description:
-                description_text += f"{description}\n\n"
-            description_text += f"**Hosted by:** {interaction.user.mention}"
-            embed.description = description_text
 
             # Add fields for time, winners, and entries
             time_formats = format_end_time(end_time)
@@ -309,9 +295,29 @@ class GiveawayCog(commands.Cog):
             time_value = (
                 f"{time_formats['discord_relative']}({time_formats['discord_absolute']})"
             )
-            embed.add_field(name="Ends At", value=time_value, inline=False)
-            embed.add_field(name="Winners", value=f"**{winners_count}**", inline=True)
-            embed.add_field(name="Entries", value="**0**", inline=True)
+
+            title = f"{prize}"
+            description = f"Hosted by:** {interaction.user.mention}\nEnds At:{time_value}\nWinners: **{winners_count}**\nEntries: **0**"
+            
+            # Create the embed for the giveaway
+            embed = discord.Embed(
+                title=title,
+                description=description,
+                color=0x9BC5E7,
+                timestamp=datetime.datetime.fromtimestamp(end_time)
+            )
+            
+          #   Add the prize and description
+          #  description_text = f"**{prize}**\n\n"
+           # if description:
+            #    description_text += f"{description}\n\n"
+          #  description_text += f"**Hosted by:** {interaction.user.mention}"
+          #  embed.description = description_text
+
+            
+          #  embed.add_field(name="Ends At", value=time_value, inline=False)
+           # embed.add_field(name="Winners", value=f"**{winners_count}**", inline=True)
+          #  embed.add_field(name="Entries", value="**0**", inline=True)
             
             
             
