@@ -296,13 +296,12 @@ class GiveawayCog(commands.Cog):
                 f"{time_formats['discord_relative']}({time_formats['discord_absolute']})"
             )
 
-            title = f"{prize}"
-            description = f"Hosted by: {interaction.user.mention}\nEnds At:{time_value}\nWinners: {winners_count}\nEntries: {giveaway.entries_count}"
+            #title = 
             
             # Create the embed for the giveaway
             embed = discord.Embed(
-                title=title,
-                description=description,
+                title=f"{prize}",
+                description=f"Hosted by: {interaction.user.mention}\nEnds At:{time_value}\nWinners: {winners_count}\nEntries: **0**",
                 color=0x9BC5E7,
                 timestamp=datetime.datetime.fromtimestamp(end_time)
             )
