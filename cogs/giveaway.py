@@ -297,7 +297,7 @@ class GiveawayCog(commands.Cog):
             )
 
             title = f"{prize}"
-            description = f"**Hosted by:** {interaction.user.mention}\nEnds At:{time_value}\nWinners: **{winners_count}**\nEntries: **0**"
+            description = f"Hosted by: {interaction.user.mention}\nEnds At:{time_value}\nWinners: {winners_count}\nEntries: 0"
             
             # Create the embed for the giveaway
             embed = discord.Embed(
